@@ -26,7 +26,7 @@ function operate(num1, num2, op) {
         case "-":
             subtract(num1, num2);
             break;
-        case "*":
+        case "x":
             multiply(num1, num2);
             break;
         case "/":

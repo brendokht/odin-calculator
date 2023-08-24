@@ -1,5 +1,80 @@
+:root {
+    --button-color: #383838;
+    --operator-color: #11c19b;
+    --equals-color: #c11111;
+    --screen-color: #585858;
+    --bg-color: #1e1e1e;
+    --container-color: #2b2b2b;
+    --width: 25vw;
+    --height: calc(var(--width) * 1.5);
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: "Miriam Libre", sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--container-color);
+    height: var(--height);
+    width: var(--width);
+    padding: 1%;
+    border-radius: 5px;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.row {
+    display: flex;
+    flex-grow: 1;
+}
+
+.screen {
+    background-color: var(--screen-color);
+    text-align: right;
+    width: 100%;
+    padding: 0 10%;
+    justify-content: right;
+    margin-bottom: 0.5vh;
+    border-radius: 5px;
+}
+
+.screen,
+.button {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.button {
+    background-color: var(--button-color);
+    width: 25%;
+    text-align: center;
+    border: 1px solid var(--container-color);
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.operator {
+    background-color: var(--operator-color);
+}
+
+.operator#equals {
+    background-color: var(--equals-color);
 }
