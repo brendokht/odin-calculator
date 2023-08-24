@@ -12,6 +12,7 @@ let moduloOp = "\u0025";
 let sqrtOp = "\u221A";
 let squareOp = "x2";
 let inverseOp = "1/x";
+let switchOp = `${addOp}/${subtractOp}`;
 
 const screen = document.querySelector(".screen");
 const numbers = document.querySelectorAll(".button.number");
@@ -48,6 +49,8 @@ operators.forEach((button) => {
             firstNumber = square(firstNumber);
         } else if (button.innerText === inverseOp) {
             firstNumber = inverse(firstNumber);
+        } else if (button.innerText === switchOp) {
+            firstNumber = switchSigns(firstNumber);
         }
 
         screen.innerText = firstNumber.toString();
@@ -63,6 +66,15 @@ equals.addEventListener("click", (e) => {
     clearData();
     screen.innerText = ans;
     answer = ans;
+});
+
+backspace.addEventListener("click", (e) => {
+    if (activeNumber === "") {
+        return;
+    } else {
+        activeNumber = activeNumber.slice(0, activeNumber.length - 1);
+        screen.innerText = activeNumber;
+    }
 });
 
 clear.addEventListener("click", (e) => {
@@ -90,6 +102,10 @@ function divide(num1, num2) {
     return num1 / num2;
 }
 
+function modulo(num1, num2) {
+    return num1 % num2;
+}
+
 function inverse(num1) {
     return 1.0 / num1;
 }
@@ -99,11 +115,16 @@ function square(num1) {
 }
 
 function sqrt(num1) {
+    if (num1 < 0) {
+        alert("Cannot square root negative number. Cleared data.");
+        clearData();
+        return 0;
+    }
     return Math.sqrt(num1);
 }
 
-function modulo(num1, num2) {
-    return num1 % num2;
+function switchSigns(num1) {
+    return num1 * -1;
 }
 
 function clearData() {
