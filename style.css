@@ -75,6 +75,6 @@ body {
     background-color: var(--operator-color);
 }
 
-.button.equals {
+.equals {
     background-color: var(--equals-color);
 }
