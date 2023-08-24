@@ -4,6 +4,15 @@ let secondNumber = null;
 let operator = null;
 let answer = null;
 
+let addOp = "\u002B";
+let subtractOp = "\u2212";
+let multiplyOp = "\u00D7";
+let divideOp = "\u00F7";
+let moduloOp = "\u0025";
+let sqrtOp = "\u221A";
+let squareOp = "x2";
+let inverseOp = "1/x";
+
 const screen = document.querySelector(".screen");
 const numbers = document.querySelectorAll(".button.number");
 const operators = document.querySelectorAll(".button.operator");
@@ -24,13 +33,23 @@ numbers.forEach((button) => {
 
 operators.forEach((button) => {
     button.addEventListener("click", (e) => {
-        if (activeNumber === "") {
+        if (activeNumber === "" && !operator) {
             firstNumber = answer;
+        } else if (activeNumber === "" && operator) {
         } else if (secondNumber) {
             firstNumber = operate(firstNumber, secondNumber, operator);
         } else {
             firstNumber = parseInt(activeNumber);
         }
+
+        if (button.innerText === sqrtOp) {
+            firstNumber = sqrt(firstNumber);
+        } else if (button.innerText === squareOp) {
+            firstNumber = square(firstNumber);
+        } else if (button.innerText === inverseOp) {
+            firstNumber = inverse(firstNumber);
+        }
+
         screen.innerText = firstNumber.toString();
         activeNumber = "";
         operator = button.innerText;
@@ -71,6 +90,22 @@ function divide(num1, num2) {
     return num1 / num2;
 }
 
+function inverse(num1) {
+    return 1.0 / num1;
+}
+
+function square(num1) {
+    return num1 * num1;
+}
+
+function sqrt(num1) {
+    return Math.sqrt(num1);
+}
+
+function modulo(num1, num2) {
+    return num1 % num2;
+}
+
 function clearData() {
     firstNumber = null;
     secondNumber = null;
@@ -82,17 +117,20 @@ function clearData() {
 function operate(num1, num2, op) {
     var ans = 0;
     switch (op) {
-        case "+":
+        case addOp:
             ans = add(num1, num2);
             break;
-        case "-":
+        case subtractOp:
             ans = subtract(num1, num2);
             break;
-        case "x":
+        case multiplyOp:
             ans = multiply(num1, num2);
             break;
-        case "/":
+        case divideOp:
             ans = divide(num1, num2);
+            break;
+        case moduloOp:
+            ans = modulo(num1, num2);
             break;
         default:
             throw new Error("Invalid operator");
