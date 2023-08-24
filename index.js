@@ -36,6 +36,7 @@ operators.forEach((button) => {
     button.addEventListener("click", (e) => {
         if (activeNumber === "" && !operator) {
             firstNumber = answer;
+            answer = null;
         } else if (activeNumber === "" && operator) {
         } else if (secondNumber) {
             firstNumber = operate(firstNumber, secondNumber, operator);
@@ -43,14 +44,16 @@ operators.forEach((button) => {
             firstNumber = parseInt(activeNumber);
         }
 
-        if (button.innerText === sqrtOp) {
-            firstNumber = sqrt(firstNumber);
-        } else if (button.innerText === squareOp) {
-            firstNumber = square(firstNumber);
-        } else if (button.innerText === inverseOp) {
-            firstNumber = inverse(firstNumber);
-        } else if (button.innerText === switchOp) {
-            firstNumber = switchSigns(firstNumber);
+        if (!answer) {
+            if (button.innerText === sqrtOp) {
+                firstNumber = sqrt(firstNumber);
+            } else if (button.innerText === squareOp) {
+                firstNumber = square(firstNumber);
+            } else if (button.innerText === inverseOp) {
+                firstNumber = inverse(firstNumber);
+            } else if (button.innerText === switchOp) {
+                firstNumber = switchSigns(firstNumber);
+            }
         }
 
         screen.innerText = firstNumber.toString();
@@ -107,6 +110,11 @@ function modulo(num1, num2) {
 }
 
 function inverse(num1) {
+    if (num1 === 0 || num1 === null) {
+        alert("Cannot inverse zero. Cleared data.");
+        clearData();
+        return 0;
+    }
     return 1.0 / num1;
 }
 
