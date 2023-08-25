@@ -13,55 +13,65 @@
         />
     </head>
     <body>
-        <div class="container">
-            <div class="calculator">
-                <div class="row">
-                    <div class="screen">0</div>
-                </div>
-                <div class="row">
-                    <div class="button operator">&percnt;</div>
-                    <div class="button"></div>
-                    <div class="button" id="clear">C</div>
-                    <div class="button" id="backspace">&leftarrow;</div>
-                </div>
-                <div class="row">
-                    <div class="button operator" id="inverse">
-                        <p><sup>1</sup>/<sub>x</sub></p>
+        <div class="content">
+            <div class="container">
+                <div class="calculator">
+                    <div class="row">
+                        <div class="screen">0</div>
                     </div>
-                    <div class="button operator" id="square">
-                        <p>x<sup>2</sup></p>
+                    <div class="row">
+                        <div class="button operator">&percnt;</div>
+                        <div class="button"></div>
+                        <div class="button" id="clear">C</div>
+                        <div class="button" id="backspace">&leftarrow;</div>
                     </div>
-                    <div class="button operator" id="square-root">&Sqrt;</div>
-                    <div class="button operator" id="divide">&divide;</div>
-                </div>
-                <div class="row">
-                    <div class="button number" id="7">7</div>
-                    <div class="button number" id="8">8</div>
-                    <div class="button number" id="9">9</div>
-                    <div class="button operator" id="multiply">&times;</div>
-                </div>
-                <div class="row">
-                    <div class="button number" id="4">4</div>
-                    <div class="button number" id="5">5</div>
-                    <div class="button number" id="6">6</div>
-                    <div class="button operator" id="subtract">&minus;</div>
-                </div>
-                <div class="row">
-                    <div class="button number" id="1">1</div>
-                    <div class="button number" id="2">2</div>
-                    <div class="button number" id="3">3</div>
-                    <div class="button operator" id="add">&plus;</div>
-                </div>
-                <div class="row">
-                    <div class="button operator" id="plus-or-minus">
-                        <p><sup>&plus;</sup>/<sub>&minus;</sub></p>
+                    <div class="row">
+                        <div class="button operator" id="inverse">
+                            <p><sup>1</sup>/<sub>x</sub></p>
+                        </div>
+                        <div class="button operator" id="square">
+                            <p>x<sup>2</sup></p>
+                        </div>
+                        <div class="button operator" id="square-root">
+                            &Sqrt;
+                        </div>
+                        <div class="button operator" id="divide">&divide;</div>
                     </div>
-                    <div class="button number" id="0">0</div>
-                    <div class="button decimal" id="decimal">.</div>
-                    <div class="button equals" id="equals">&equals;</div>
+                    <div class="row">
+                        <div class="button number" id="7">7</div>
+                        <div class="button number" id="8">8</div>
+                        <div class="button number" id="9">9</div>
+                        <div class="button operator" id="multiply">&times;</div>
+                    </div>
+                    <div class="row">
+                        <div class="button number" id="4">4</div>
+                        <div class="button number" id="5">5</div>
+                        <div class="button number" id="6">6</div>
+                        <div class="button operator" id="subtract">&minus;</div>
+                    </div>
+                    <div class="row">
+                        <div class="button number" id="1">1</div>
+                        <div class="button number" id="2">2</div>
+                        <div class="button number" id="3">3</div>
+                        <div class="button operator" id="add">&plus;</div>
+                    </div>
+                    <div class="row">
+                        <div class="button operator" id="plus-or-minus">
+                            <p><sup>&plus;</sup>/<sub>&minus;</sub></p>
+                        </div>
+                        <div class="button number" id="0">0</div>
+                        <div class="button decimal" id="decimal">.</div>
+                        <div class="button equals" id="equals">&equals;</div>
+                    </div>
                 </div>
             </div>
         </div>
+        <footer>
+            Copyright &copy; 2023 brendokht
+            <a href="https://github.com/brendokht" target="_blank">
+                <img id="github" src="images/github-mark-white.png" />
+            </a>
+        </footer>
         <script src="index.js"></script>
     </body>
 </html>
